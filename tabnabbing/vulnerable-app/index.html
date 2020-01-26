@@ -1,3 +1,13 @@
 <h1>Homepage (Vulnerable app)</h1>
 
 <a href="../attacker-main-app/index.html" target="_blank" rel="noopener noreferrer">Kittens</a>
+
+<button id="puppies">Puppies!</button>
+
+<script>
+    puppies.addEventListener('click', () => {
+        window.open(
+            '../attacker-main-app/index.html'
+        );
+    });
+</script>
