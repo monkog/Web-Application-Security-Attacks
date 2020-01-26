@@ -1,4 +1,14 @@
+const files = [
+    'home.html',
+    'contact.html'
+];
+
 async function navigate(page) {
+    if(!files.includes(page)) {
+        console.warn('Access denied');
+        return;
+    }
+
     const fileUrl = './pages/' + page;
     const response = await fetch(fileUrl);
     const pageContent = document.querySelector("#page");
