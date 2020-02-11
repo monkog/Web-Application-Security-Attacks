@@ -4,10 +4,11 @@ const files = [
 ];
 
 async function navigate(page) {
-    if(!files.includes(page)) {
-        console.warn('Access denied');
-        return;
-    }
+    // Uncomment the lines below to make the vulnerable application resistant to the path traversal attack.
+    // if(!files.includes(page)) {
+    //     console.warn('Access denied');
+    //     return;
+    // }
 
     const fileUrl = './pages/' + page;
     const response = await fetch(fileUrl);
