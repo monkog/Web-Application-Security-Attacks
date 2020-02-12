@@ -30,5 +30,5 @@ addCommentForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const comment = document.querySelector('textarea').value;
     saveComment(comment);
-    renderComments([comment]);
+    fetchComments().then((comments) => { renderComments([comments[comments.length - 1]]) });
 })

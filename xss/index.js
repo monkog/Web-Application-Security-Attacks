@@ -4,21 +4,30 @@ const helmet = require('helmet');
 const sanitize = require('sanitize-html');
 const app = express();
 
+const whitelist = {
+    allowedTags: [ 'i', 'em', 'strong', 'a' ],
+    allowedAttributes: {
+        'a': [ 'href' ]
+    },
+    allowedIframeHostnames: ['www.youtube.com']
+};
+
 app.use(bodyParser());
-app.use(helmet.contentSecurityPolicy({
-    directives: {
-        defaultSrc: ["'self'"],
-        styleSrc: ["'self'"]
-    }
-}));
+// Uncomment the lines below to make the vulnerable application resistant to the XSS attack.
+// app.use(helmet.contentSecurityPolicy({
+//     directives: {
+//         defaultSrc: ["'self'"],
+//         styleSrc: ["'self'"]
+//     }
+// }));
 app.use(express.static('.'));
 
 const comments = [];
 
 app.post('/comments', (request, response) => {
-    const comment = request.body.comment;
-    const sanitizedComment = sanitize(comment);
-    console.log('Original: ', comment, 'sanitized: ', sanitizedComment);
+    let comment = request.body.comment;
+    // Uncomment the lines below to make the vulnerable application resistant to the XSS attack.
+    // comment = sanitize(comment, whitelist);
     comments.push(comment);
     response.end('Saved');
 });
