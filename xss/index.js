@@ -26,7 +26,7 @@ const comments = [];
 
 app.post('/comments', (request, response) => {
     let comment = request.body.comment;
-    // Uncomment the lines below to make the vulnerable application resistant to the XSS attack.
+    // Uncomment the line below to make the vulnerable application resistant to the XSS attack.
     // comment = sanitize(comment, whitelist);
     comments.push(comment);
     response.end('Saved');

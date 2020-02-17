@@ -1,6 +1,6 @@
 # Cross Site Scripting (XSS)
 
-Cross-Site scripting attacks are based on injecting malicious code into the website. The code can often access and manipulate cookies, session tockens and other sensitive information kept by the browser. Most often it's injected as JavaScript through HTML elements, such as text boxes.
+Cross-Site scripting attacks are based on injecting malicious code into the website. The code can often access and manipulate cookies, session tokens and other sensitive information kept by the browser. Most often it's injected as JavaScript through HTML elements, such as text boxes.
 
 ## Example
 
@@ -13,7 +13,7 @@ Cross-Site scripting attacks are based on injecting malicious code into the webs
 
 ### Content-Security-Policy
 
-One of the examples of how to make our application resistant to such attack is to allow on our website only the content that comes from trusted domains. There are libraries that take care of this for us. One of them is [**helmet**](https://github.com/helmetjs/helmet)
+One of the examples of how to make our application resistant to such attack is to allow on our website only the content that comes from trusted domains. There are libraries that take care of this for us. One of them is [**helmet**](https://github.com/helmetjs/helmet).
 
 Helmet has a feature called **contentSecurityPolicy** which helps to prevent from the unwanted content being injected into the web page. This feature sets the **Content-Security-Policy** header in the web request. This header is a whitelist for the content that is allowed to be on the website.
 

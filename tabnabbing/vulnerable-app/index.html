@@ -1,6 +1,7 @@
 <h1>Homepage (Vulnerable app)</h1>
 
-<a href="../attacker-main-app/index.html" target="_blank" rel="noopener noreferrer">Kittens</a>
+<!-- Add a rel="noopener noreferrer" attribute to the HTML element to make the vulnerable application resistant to the tabnabbing attack. -->
+<a href="../attacker-main-app/index.html" target="_blank">Kittens</a>
 
 <button id="puppies">Puppies!</button>
 
@@ -9,7 +10,8 @@
         window.open(
             '../attacker-main-app/index.html',
             '_blank',
-            'noopener=1,noreferrer=1'
+            // Uncomment the line below to make the vulnerable application resistant to the tabnabbing attack.
+            // 'noopener=1,noreferrer=1'
         );
     });
 </script>
